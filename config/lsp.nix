@@ -3,9 +3,12 @@
     lsp = {
       enable = true;
       servers = {
+        html.enable = true;
+        cssls.enable = true;
         nil_ls.enable = true;
         gopls.enable = true;
         tsserver.enable = true;
+        svelte.enable = true;
       };
     };
 
@@ -18,6 +21,16 @@
           {name = "path";}
           {name = "buffer";}
         ];
+      };
+    };
+
+    none-ls = {
+      enable = true;
+      sources = {
+        formatting = {
+          alejandra.enable = true;
+          prettierd.enable = true;
+        };
       };
     };
   };

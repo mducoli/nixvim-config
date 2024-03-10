@@ -8,15 +8,18 @@
   config = {
     options = {
       relativenumber = true;
+      conceallevel = 2;
+      concealcursor = "nc";
     };
 
     globals = {
       mapleader = " ";
+      maplocalleader = " ";
     };
 
-    colorschemes.base16 = {
+    colorschemes.tokyonight = {
       enable = true;
-      colorscheme = "onedark";
+      style = "night";
     };
 
     clipboard.register = "unnamedplus";
@@ -31,6 +34,7 @@
 
       treesitter = {
         enable = true;
+        indent = true;
       };
 
       nvim-tree = {
@@ -46,6 +50,10 @@
       };
 
       comment-nvim = {
+        enable = true;
+      };
+
+      telescope = {
         enable = true;
       };
     };

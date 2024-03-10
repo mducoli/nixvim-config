@@ -73,7 +73,38 @@
       lua = true;
       options.silent = true;
     }
-    # TODO add telescope
+    # Telescope
+    {
+      action = "<cmd>Telescope live_grep<CR>";
+      key = "<Leader>fw";
+      mode = "n";
+      options.silent = true;
+    }
+    {
+      action = "<cmd>Telescope find_files<CR>";
+      key = "<Leader>ff";
+      mode = "n";
+      options.silent = true;
+    }
+    {
+      action = "<cmd>Telescope git_commits<CR>";
+      key = "<Leader>cm";
+      mode = "n";
+      options.silent = true;
+    }
+    {
+      action = "<cmd>Telescope git_status<CR>";
+      key = "<Leader>gt";
+      mode = "n";
+      options.silent = true;
+    }
+    # Oil
+    {
+      action = "<cmd>Oil<CR>";
+      key = "<Leader>o";
+      mode = "n";
+      options.silent = true;
+    }
   ];
 
   plugins.cmp.settings.mapping = {
