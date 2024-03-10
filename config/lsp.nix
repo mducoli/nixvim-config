@@ -18,9 +18,15 @@
       settings = {
         sources = [
           {name = "nvim_lsp";}
+          {name = "luasnip";}
           {name = "path";}
           {name = "buffer";}
         ];
+        snippet.expand = /* lua */ ''
+          function(args)
+            require('luasnip').lsp_expand(args.body)
+          end
+        '';
       };
     };
 

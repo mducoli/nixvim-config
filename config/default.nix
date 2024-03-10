@@ -56,6 +56,10 @@
       telescope = {
         enable = true;
       };
+
+      cmp_luasnip.enable = true;
+      luasnip.enable = true;
+      nvim-autopairs.enable = true;
     };
   };
 }

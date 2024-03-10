@@ -13,6 +13,7 @@
       mode = "n";
       options.silent = true;
     }
+
     # Buffer bar
     {
       action = "<cmd>bnext<CR>";
@@ -32,6 +33,7 @@
       mode = "n";
       options.silent = true;
     }
+
     # File tree
     {
       action = "<cmd>NvimTreeFocus<CR>";
@@ -45,6 +47,7 @@
       mode = "n";
       options.silent = true;
     }
+
     # Terminal
     {
       action = "<cmd>ToggleTerm size=15 direction=horizontal<CR>";
@@ -58,6 +61,7 @@
       mode = ["n" "t"];
       options.silent = true;
     }
+
     # LSP
     {
       action = "vim.lsp.buf.format";
@@ -73,6 +77,56 @@
       lua = true;
       options.silent = true;
     }
+    {
+      action = "vim.lsp.buf.hover";
+      key = "K";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+    {
+      action = "vim.lsp.buf.declaration";
+      key = "gD";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+    {
+      action = "vim.lsp.buf.definition";
+      key = "gd";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+    {
+      action = "vim.lsp.buf.implementation";
+      key = "gi";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+    {
+      action = "vim.lsp.buf.type_definition";
+      key = "gt";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+    {
+      action = "vim.lsp.buf.references";
+      key = "gr";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+    {
+      action = "vim.lsp.buf.code_action";
+      key = "<Leader>ca";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
+
     # Telescope
     {
       action = "<cmd>Telescope live_grep<CR>";
@@ -98,6 +152,7 @@
       mode = "n";
       options.silent = true;
     }
+
     # Oil
     {
       action = "<cmd>Oil<CR>";

@@ -1,2 +1,3 @@
 - confirmation when closing unsaved buffer
 - templ language support
+- lsp rename
