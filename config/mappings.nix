@@ -126,6 +126,13 @@
       lua = true;
       options.silent = true;
     }
+    {
+      action = "vim.lsp.buf.rename";
+      key = "<Leader>ra";
+      mode = "n";
+      lua = true;
+      options.silent = true;
+    }
 
     # Telescope
     {
