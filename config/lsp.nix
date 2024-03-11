@@ -22,11 +22,15 @@
           {name = "path";}
           {name = "buffer";}
         ];
-        snippet.expand = /* lua */ ''
-          function(args)
-            require('luasnip').lsp_expand(args.body)
-          end
-        '';
+        snippet.expand =
+          /*
+          lua
+          */
+          ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
       };
     };
 
@@ -34,7 +38,9 @@
       enable = true;
       sources = {
         formatting = {
-          alejandra.enable = true;
+          alejandra = {
+            enable = true;
+          };
           prettierd.enable = true;
         };
       };
