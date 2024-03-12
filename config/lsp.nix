@@ -3,13 +3,17 @@
     lsp = {
       enable = true;
       servers = {
+        # web
         html.enable = true;
         cssls.enable = true;
-        nil_ls.enable = true;
-        gopls.enable = true;
-        tsserver.enable = true;
         svelte.enable = true;
+        tsserver.enable = true;
+        tailwindcss.enable = true;
+        # go
+        gopls.enable = true;
         templ.enable = true;
+        # nix
+        nil_ls.enable = true;
       };
     };
 
