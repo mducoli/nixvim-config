@@ -10,7 +10,20 @@
     oil.enable = true;
     nvim-tree.enable = true;
     toggleterm.enable = true;
-    nvim-colorizer.enable = true;
+    nvim-colorizer = {
+      enable = true;
+      fileTypes = [
+        "*"
+        {
+          language = "svelte";
+          tailwind = true;
+        }
+        {
+          language = "css";
+          css = true;
+        }
+      ];
+    };
     indent-blankline.enable = true;
     gitsigns.enable = true;
   };
