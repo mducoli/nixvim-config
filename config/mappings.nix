@@ -16,6 +16,7 @@ in
     (map "n" "<Leader>w" "<cmd>w<CR>") # Save buffer
     (map "n" "<C-c>" "<cmd>%y+<CR>") # Copy buffer
     (map "n" "<Leader>x" "<cmd>Bdelete<CR>") # Delete buffer
+    (map "n" "<Leader>q" "<cmd>confirm q<CR>") # Quit
 
     # Buffer bar
     (map "n" "<Tab>" "<cmd>bnext<CR>") # Next buffer
