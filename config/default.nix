@@ -47,6 +47,5 @@
       gitsigns.enable = true;
       indent-blankline.enable = true;
     };
-
   };
 }

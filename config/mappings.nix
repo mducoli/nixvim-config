@@ -52,13 +52,13 @@
     {
       action = "<cmd>ToggleTerm size=15 direction=horizontal<CR>";
       key = "<A-h>";
-      mode = ["n" "t"];
+      mode = [ "n" "t" ];
       options.silent = true;
     }
     {
       action = "<cmd>ToggleTerm size=85 direction=vertical<CR>";
       key = "<A-v>";
-      mode = ["n" "t"];
+      mode = [ "n" "t" ];
       options.silent = true;
     }
 
