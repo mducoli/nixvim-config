@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./mappings.nix
     ./lsp.nix
@@ -37,7 +37,6 @@
       oil.enable = true;
       nvim-tree.enable = true;
       toggleterm.enable = true;
-      vim-bbye.enable = true;
       comment-nvim.enable = true;
       telescope.enable = true;
       cmp_luasnip.enable = true;
@@ -47,5 +46,12 @@
       gitsigns.enable = true;
       indent-blankline.enable = true;
     };
+
+    extraPlugins = [
+      pkgs.vimPlugins.bufdelete-nvim
+    ];
+
+		# extraConfigLua = /* lua */ ''
+		# ''
   };
 }
