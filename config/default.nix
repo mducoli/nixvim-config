@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports = [
     ./mappings.nix
     ./lsp.nix
@@ -19,11 +19,6 @@
       maplocalleader = " ";
     };
 
-    colorschemes.tokyonight = {
-      enable = true;
-      style = "night";
-    };
-
     clipboard.register = "unnamedplus";
 
     plugins = {
@@ -32,26 +27,8 @@
         indent = true;
       };
 
-      lualine.enable = true;
-      bufferline.enable = true;
-      oil.enable = true;
-      nvim-tree.enable = true;
-      toggleterm.enable = true;
-      comment-nvim.enable = true;
       telescope.enable = true;
-      cmp_luasnip.enable = true;
-      luasnip.enable = true;
-      nvim-autopairs.enable = true;
-      nvim-colorizer.enable = true;
-      gitsigns.enable = true;
-      indent-blankline.enable = true;
     };
 
-    extraPlugins = [
-      pkgs.vimPlugins.bufdelete-nvim
-    ];
-
-		# extraConfigLua = /* lua */ ''
-		# ''
   };
 }

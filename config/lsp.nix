@@ -30,6 +30,8 @@
       };
     };
 
+    cmp_luasnip.enable = true;
+
     none-ls = {
       enable = true;
       sources = {
@@ -39,5 +41,10 @@
         };
       };
     };
+
+
+    nvim-autopairs.enable = true;
+    luasnip.enable = true;
+    comment-nvim.enable = true;
   };
 }
