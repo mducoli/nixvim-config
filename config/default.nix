@@ -30,5 +30,13 @@
       telescope.enable = true;
     };
 
+    extraConfigLua = /* lua */ ''
+      vim.filetype.add({
+        extension = {
+          templ = "templ",
+        },
+      })
+    '';
+
   };
 }

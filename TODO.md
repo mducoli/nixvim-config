@@ -1,1 +1,1 @@
-- templ language support
+- tailwind

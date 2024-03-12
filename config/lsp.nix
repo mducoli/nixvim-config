@@ -9,6 +9,7 @@
         gopls.enable = true;
         tsserver.enable = true;
         svelte.enable = true;
+        templ.enable = true;
       };
     };
 
