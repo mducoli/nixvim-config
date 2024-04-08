@@ -50,6 +50,6 @@
 
     nvim-autopairs.enable = true;
     luasnip.enable = true;
-    comment-nvim.enable = true;
+    comment.enable = true;
   };
 }

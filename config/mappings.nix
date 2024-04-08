@@ -57,7 +57,7 @@ in
     "<CR>" = "cmp.mapping.confirm({ select = true })";
   };
 
-  plugins.comment-nvim = {
+  plugins.comment.settings = {
     toggler.line = "<Leader>/";
     opleader.line = "<Leader>/";
   };

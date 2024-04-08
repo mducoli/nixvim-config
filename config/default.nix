@@ -6,7 +6,7 @@
   ];
 
   config = {
-    options = {
+    opts = {
       relativenumber = true;
       conceallevel = 2;
       concealcursor = "nc";
