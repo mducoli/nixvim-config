@@ -1,16 +1,19 @@
 let
   map = mode: key: action: {
-    inherit mode; inherit key; inherit action;
+    inherit mode;
+    inherit key;
+    inherit action;
     options.silent = true;
   };
 
   maplua = mode: key: action: {
-    inherit mode; inherit key; inherit action;
+    inherit mode;
+    inherit key;
+    inherit action;
     lua = true;
     options.silent = true;
   };
-in
-{
+in {
   keymaps = [
     # General
     (map "n" "<Leader>w" "<cmd>w<CR>") # Save buffer
@@ -28,8 +31,8 @@ in
     (map "n" "<Leader>o" "<cmd>Oil<CR>") # Open Oil
 
     # Terminal
-    (map [ "n" "t" ] "<A-h>" "<cmd>ToggleTerm size=15 direction=horizontal<CR>") # Horizontal terminal
-    (map [ "n" "t" ] "<A-v>" "<cmd>ToggleTerm size=85 direction=vertical<CR>") # Vertical terminal
+    (map ["n" "t"] "<A-h>" "<cmd>ToggleTerm size=15 direction=horizontal<CR>") # Horizontal terminal
+    (map ["n" "t"] "<A-v>" "<cmd>ToggleTerm size=85 direction=vertical<CR>") # Vertical terminal
 
     # LSP
     (maplua "n" "<Leader>fm" "vim.lsp.buf.format") # Format buffer

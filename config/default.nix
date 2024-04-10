@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./mappings.nix
     ./lsp.nix
@@ -30,13 +30,16 @@
       telescope.enable = true;
     };
 
-    extraConfigLua = /* lua */ ''
-      vim.filetype.add({
-        extension = {
-          templ = "templ",
-        },
-      })
-    '';
-
+    extraConfigLua =
+      /*
+      lua
+      */
+      ''
+        vim.filetype.add({
+          extension = {
+            templ = "templ",
+          },
+        })
+      '';
   };
 }
