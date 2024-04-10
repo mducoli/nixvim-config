@@ -41,7 +41,7 @@
       enable = true;
       sources = {
         formatting = {
-          nixpkgs_fmt.enable = true;
+          alejandra.enable = true;
           prettierd.enable = true;
         };
       };
