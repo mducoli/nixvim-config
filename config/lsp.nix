@@ -14,6 +14,8 @@
         templ.enable = true;
         # nix
         nil_ls.enable = true;
+        # terraform
+        terraformls.enable = true;
       };
     };
 
