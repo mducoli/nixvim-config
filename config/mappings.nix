@@ -35,7 +35,30 @@ in {
     (map ["n" "t"] "<A-v>" "<cmd>ToggleTerm size=85 direction=vertical<CR>") # Vertical terminal
 
     # LSP
-    (maplua "n" "<Leader>fm" "vim.lsp.buf.format") # Format buffer
+    (maplua "n" "<Leader>fm"
+      # Format buffer only with null-ls if available
+      /*
+      lua
+      */
+      ''
+        function()
+          local null_ls_sources = require('null-ls.sources')
+          local ft = vim.bo.filetype
+
+          local has_null_ls = #null_ls_sources.get_available(ft, 'NULL_LS_FORMATTING') > 0
+
+          vim.lsp.buf.format({
+            filter = function(client)
+              if has_null_ls then
+                return client.name == 'null-ls'
+              else
+                return true
+              end
+            end,
+          })
+        end
+      '')
+
     (maplua "n" "<Leader>fd" "vim.diagnostic.open_float") # Open floating diagnostic
     (maplua "n" "K" "vim.lsp.buf.hover") # Open information tooltip
     (maplua "n" "gD" "vim.lsp.buf.declaration") # Go to declaration
