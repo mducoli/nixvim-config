@@ -13,7 +13,7 @@
         gopls.enable = true;
         templ.enable = true;
         # nix
-        nil_ls.enable = true;
+        nil-ls.enable = true;
         # terraform
         terraformls.enable = true;
       };

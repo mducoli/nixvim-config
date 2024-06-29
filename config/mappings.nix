@@ -2,63 +2,39 @@ let
   map = mode: key: action: {
     inherit mode;
     inherit key;
-    inherit action;
+    action = ''<cmd>${action}<CR>'';
     options.silent = true;
   };
 
   maplua = mode: key: action: {
     inherit mode;
     inherit key;
-    inherit action;
-    lua = true;
+    action = ''<cmd>lua (${action})()<CR>'';
     options.silent = true;
   };
 in {
   keymaps = [
     # General
-    (map "n" "<Leader>w" "<cmd>w<CR>") # Save buffer
-    (map "n" "<C-c>" "<cmd>%y+<CR>") # Copy buffer
-    (map "n" "<Leader>x" "<cmd>Bdelete<CR>") # Delete buffer
-    (map "n" "<Leader>q" "<cmd>confirm q<CR>") # Quit
+    (map "n" "<Leader>w" "w") # Save buffer
+    (map "n" "<C-c>" "%y+") # Copy buffer
+    (map "n" "<Leader>x" "Bdelete") # Delete buffer
+    (map "n" "<Leader>q" "confirm q") # Quit
 
     # Buffer bar
-    (map "n" "<Tab>" "<cmd>bnext<CR>") # Next buffer
-    (map "n" "<S-Tab>" "<cmd>bprevious<CR>") # Previous buffer
+    (map "n" "<Tab>" "bnext") # Next buffer
+    (map "n" "<S-Tab>" "bprevious") # Previous buffer
 
     # File tree
-    (map "n" "<Leader>e" "<cmd>NvimTreeFocus<CR>") # Focus file tree
-    (map "n" "<C-n>" "<cmd>NvimTreeToggle<CR>") # Toggle file tree
-    (map "n" "<Leader>o" "<cmd>Oil<CR>") # Open Oil
+    (map "n" "<Leader>e" "NvimTreeFocus") # Focus file tree
+    (map "n" "<C-n>" "NvimTreeToggle") # Toggle file tree
+    (map "n" "<Leader>o" "Oil") # Open Oil
 
     # Terminal
-    (map ["n" "t"] "<A-h>" "<cmd>ToggleTerm size=15 direction=horizontal<CR>") # Horizontal terminal
-    (map ["n" "t"] "<A-v>" "<cmd>ToggleTerm size=85 direction=vertical<CR>") # Vertical terminal
+    (map ["n" "t"] "<A-h>" "ToggleTerm size=15 direction=horizontal") # Horizontal terminal
+    (map ["n" "t"] "<A-v>" "ToggleTerm size=85 direction=vertical") # Vertical terminal
 
     # LSP
-    (maplua "n" "<Leader>fm"
-      # Format buffer only with null-ls if available
-      /*
-      lua
-      */
-      ''
-        function()
-          local null_ls_sources = require('null-ls.sources')
-          local ft = vim.bo.filetype
-
-          local has_null_ls = #null_ls_sources.get_available(ft, 'NULL_LS_FORMATTING') > 0
-
-          vim.lsp.buf.format({
-            filter = function(client)
-              if has_null_ls then
-                return client.name == 'null-ls'
-              else
-                return true
-              end
-            end,
-          })
-        end
-      '')
-
+    (maplua "n" "<Leader>fm" "CustomFormat") # defined below
     (maplua "n" "<Leader>fd" "vim.diagnostic.open_float") # Open floating diagnostic
     (maplua "n" "K" "vim.lsp.buf.hover") # Open information tooltip
     (maplua "n" "gD" "vim.lsp.buf.declaration") # Go to declaration
@@ -70,10 +46,10 @@ in {
     (maplua "n" "<Leader>ra" "vim.lsp.buf.rename") # Rename token
 
     # Telescope
-    (map "n" "<Leader>fw" "<cmd>Telescope live_grep<CR>")
-    (map "n" "<Leader>ff" "<cmd>Telescope find_files<CR>")
-    (map "n" "<Leader>cm" "<cmd>Telescope git_commits<CR>")
-    (map "n" "<Leader>gt" "<cmd>Telescope git_status<CR>")
+    (map "n" "<Leader>fw" "Telescope live_grep")
+    (map "n" "<Leader>ff" "Telescope find_files")
+    (map "n" "<Leader>cm" "Telescope git_commits")
+    (map "n" "<Leader>gt" "Telescope git_status")
   ];
 
   plugins.cmp.settings.mapping = {
@@ -87,4 +63,28 @@ in {
     toggler.line = "<Leader>/";
     opleader.line = "<Leader>/";
   };
+
+  extraConfigLua =
+    /*
+    lua
+    */
+    ''
+      -- Format buffer only with null-ls if available
+      function CustomFormat()
+        local null_ls_sources = require('null-ls.sources')
+        local ft = vim.bo.filetype
+
+        local has_null_ls = #null_ls_sources.get_available(ft, 'NULL_LS_FORMATTING') > 0
+
+        vim.lsp.buf.format({
+          filter = function(client)
+            if has_null_ls then
+              return client.name == 'null-ls'
+            else
+              return true
+            end
+          end,
+        })
+      end
+    '';
 }
