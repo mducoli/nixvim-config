@@ -19,8 +19,6 @@
     maplocalleader = " ";
   };
 
-  clipboard.register = "unnamedplus";
-
   plugins = {
     treesitter = {
       enable = true;
