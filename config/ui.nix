@@ -9,7 +9,14 @@
   plugins = {
     lualine.enable = true;
     bufferline.enable = true;
-    oil.enable = true;
+    oil = {
+      enable = true;
+      settings = {
+        view_options = {
+          show_hidden = true;
+        };
+      };
+    };
     nvim-tree.enable = true;
     toggleterm.enable = true;
     nvim-colorizer = {
