@@ -19,6 +19,15 @@
       };
     };
 
+    # Java
+    nvim-jdtls = {
+      enable = true;
+      settings.settings.java = {
+        signatureHelp.enabled = true;
+      };
+      data = ".nvim-jdtls";
+    };
+
     cmp = {
       enable = true;
       autoEnableSources = true;
