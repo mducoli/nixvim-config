@@ -9,6 +9,7 @@
         svelte.enable = true;
         ts-ls.enable = true;
         tailwindcss.enable = true;
+        eslint.enable = true;
         # go
         gopls.enable = true;
         templ.enable = true;
@@ -58,6 +59,7 @@
         formatting = {
           alejandra.enable = true;
           prettierd.enable = true;
+          rustywind.enable = true;
         };
       };
     };
