@@ -7,7 +7,7 @@
         html.enable = true;
         cssls.enable = true;
         svelte.enable = true;
-        tsserver.enable = true;
+        ts-ls.enable = true;
         tailwindcss.enable = true;
         # go
         gopls.enable = true;
@@ -65,5 +65,6 @@
     nvim-autopairs.enable = true;
     luasnip.enable = true;
     comment.enable = true;
+    web-devicons.enable = true;
   };
 }
