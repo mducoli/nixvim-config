@@ -26,7 +26,7 @@
       settings.settings.java = {
         signatureHelp.enabled = true;
       };
-      data = ".nvim-jdtls";
+      data.__raw = "vim.fn.stdpath 'cache' .. '/jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')";
     };
 
     cmp = {
