@@ -35,6 +35,7 @@
     };
     indent-blankline.enable = true;
     gitsigns.enable = true;
+    web-devicons.enable = true;
   };
 
   extraPlugins = [
