@@ -56,16 +56,20 @@ in {
     (maplua "n" "<S-Tab>" "require('luasnip').jump(-1)")
   ];
 
-  plugins.cmp.settings.mapping = {
-    "<C-Space>" = "cmp.mapping.complete()";
-    "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-    "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-    "<CR>" = "cmp.mapping.confirm({ select = true })";
-  };
+  plugins = {
+    cmp.settings.mapping = {
+      "<C-Space>" = "cmp.mapping.complete()";
+      "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+      "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+      "<CR>" = "cmp.mapping.confirm({ select = true })";
+    };
 
-  plugins.comment.settings = {
-    toggler.line = "<Leader>/";
-    opleader.line = "<Leader>/";
+    comment.settings = {
+      toggler.line = "<Leader>/";
+      opleader.line = "<Leader>/";
+    };
+
+    nvim-surround.enable = true;
   };
 
   extraConfigLua =

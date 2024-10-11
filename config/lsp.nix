@@ -51,7 +51,9 @@
       };
     };
 
+    luasnip.enable = true;
     cmp_luasnip.enable = true;
+    friendly-snippets.enable = true;
 
     none-ls = {
       enable = true;
@@ -65,8 +67,6 @@
     };
 
     nvim-autopairs.enable = true;
-    luasnip.enable = true;
     comment.enable = true;
-    friendly-snippets.enable = true;
   };
 }
