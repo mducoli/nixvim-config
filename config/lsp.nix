@@ -68,5 +68,6 @@
     luasnip.enable = true;
     comment.enable = true;
     web-devicons.enable = true;
+    friendly-snippets.enable = true;
   };
 }

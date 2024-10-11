@@ -9,7 +9,7 @@ let
   maplua = mode: key: action: {
     inherit mode;
     inherit key;
-    action = ''<cmd>lua (${action})()<CR>'';
+    action = ''<cmd>lua ${action}<CR>'';
     options.silent = true;
   };
 in {
@@ -34,22 +34,26 @@ in {
     (map ["n" "t"] "<A-v>" "ToggleTerm size=85 direction=vertical") # Vertical terminal
 
     # LSP
-    (maplua "n" "<Leader>fm" "CustomFormat") # defined below
-    (maplua "n" "<Leader>fd" "vim.diagnostic.open_float") # Open floating diagnostic
-    (maplua "n" "K" "vim.lsp.buf.hover") # Open information tooltip
-    (maplua "n" "gD" "vim.lsp.buf.declaration") # Go to declaration
-    (maplua "n" "gd" "vim.lsp.buf.definition") # Go to definition
-    (maplua "n" "gi" "vim.lsp.buf.implementation") # Go to implementation
-    (maplua "n" "gt" "vim.lsp.buf.type_definition") # Go to type definition
-    (maplua "n" "gr" "vim.lsp.buf.references") # Show references
-    (maplua "n" "<Leader>ca" "vim.lsp.buf.code_action") # Code action
-    (maplua "n" "<Leader>ra" "vim.lsp.buf.rename") # Rename token
+    (maplua "n" "<Leader>fm" "CustomFormat()") # defined below
+    (maplua "n" "<Leader>fd" "vim.diagnostic.open_float()") # Open floating diagnostic
+    (maplua "n" "K" "vim.lsp.buf.hover()") # Open information tooltip
+    (maplua "n" "gD" "vim.lsp.buf.declaration()") # Go to declaration
+    (maplua "n" "gd" "vim.lsp.buf.definition()") # Go to definition
+    (maplua "n" "gi" "vim.lsp.buf.implementation()") # Go to implementation
+    (maplua "n" "gt" "vim.lsp.buf.type_definition()") # Go to type definition
+    (maplua "n" "gr" "vim.lsp.buf.references()") # Show references
+    (maplua "n" "<Leader>ca" "vim.lsp.buf.code_action()") # Code action
+    (maplua "n" "<Leader>ra" "vim.lsp.buf.rename()") # Rename token
 
     # Telescope
     (map "n" "<Leader>fw" "Telescope live_grep")
     (map "n" "<Leader>ff" "Telescope find_files")
     (map "n" "<Leader>cm" "Telescope git_commits")
     (map "n" "<Leader>gt" "Telescope git_status")
+
+    # Luasnip
+    (maplua "n" "<Tab>" "require('luasnip').jump(1)")
+    (maplua "n" "<S-Tab>" "require('luasnip').jump(-1)")
   ];
 
   plugins.cmp.settings.mapping = {
