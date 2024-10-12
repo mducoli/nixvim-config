@@ -52,8 +52,8 @@ in {
     (map "n" "<Leader>gt" "Telescope git_status")
 
     # Luasnip
-    (maplua "n" "<Tab>" "require('luasnip').jump(1)")
-    (maplua "n" "<S-Tab>" "require('luasnip').jump(-1)")
+    (maplua ["i" "s"] "<C-L>" "require('luasnip').jump(1)")
+    (maplua ["i" "s"] "<C-J>" "require('luasnip').jump(-1)")
   ];
 
   plugins = {
