@@ -7,14 +7,14 @@
         html.enable = true;
         cssls.enable = true;
         svelte.enable = true;
-        ts-ls.enable = true;
+        ts_ls.enable = true;
         tailwindcss.enable = true;
         eslint.enable = true;
         # go
         gopls.enable = true;
         templ.enable = true;
         # nix
-        nil-ls.enable = true;
+        nil_ls.enable = true;
         # terraform
         terraformls.enable = true;
       };
