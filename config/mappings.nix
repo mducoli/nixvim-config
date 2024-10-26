@@ -9,7 +9,7 @@ let
   maplua = mode: key: action: {
     inherit mode;
     inherit key;
-    action = ''<cmd>lua ${action}<CR>'';
+    action.__raw = ''function() ${action} end'';
     options.silent = true;
   };
 in {
@@ -54,6 +54,9 @@ in {
     # Luasnip
     (maplua ["i" "s"] "<C-L>" "require('luasnip').jump(1)")
     (maplua ["i" "s"] "<C-J>" "require('luasnip').jump(-1)")
+
+    # Nabla
+    (maplua "n" "<Leader>p" "require('nabla').popup()")
   ];
 
   plugins = {

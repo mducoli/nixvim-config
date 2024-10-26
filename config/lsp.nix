@@ -68,5 +68,14 @@
 
     nvim-autopairs.enable = true;
     comment.enable = true;
+
+    treesitter-context = {
+      enable = true;
+      settings = {
+        max_lines = 1;
+      };
+    };
+
+    nabla.enable = true;
   };
 }
