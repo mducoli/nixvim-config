@@ -17,6 +17,8 @@
         nil_ls.enable = true;
         # terraform
         terraformls.enable = true;
+        # bash
+        bashls.enable = true;
       };
     };
 
@@ -62,6 +64,7 @@
           alejandra.enable = true;
           prettierd.enable = true;
           rustywind.enable = true;
+          shfmt.enable = true;
         };
       };
     };
