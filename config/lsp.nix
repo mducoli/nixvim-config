@@ -62,7 +62,10 @@
       sources = {
         formatting = {
           alejandra.enable = true;
-          prettierd.enable = true;
+          prettierd = {
+            enable = true;
+            disableTsServerFormatter = true;
+          };
           rustywind.enable = true;
           shfmt.enable = true;
         };
