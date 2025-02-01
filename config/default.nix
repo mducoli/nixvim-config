@@ -59,5 +59,18 @@
       }),
     }
     null_ls.register(tofu_formatter)
+
+    -- Latex indenter
+    local latex_indenter = {
+      name = "latexindent",
+      method = null_ls.methods.FORMATTING,
+      filetypes = { "tex" },
+      generator = null_ls.formatter({
+        command = "latexindent.pl",
+        args = { },
+        to_stdin = true,
+      }),
+    }
+    null_ls.register(latex_indenter)
   '';
 }

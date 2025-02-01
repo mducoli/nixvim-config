@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins = {
     lsp = {
       enable = true;
@@ -19,6 +19,12 @@
         terraformls.enable = true;
         # bash
         bashls.enable = true;
+        # latex
+        texlab.enable = true;
+        ltex = {
+          enable = true;
+          settings.language = "it";
+        };
       };
     };
 
@@ -75,4 +81,8 @@
 
     nabla.enable = true;
   };
+
+  extraPackages = with pkgs; [
+    perl540Packages.LatexIndent
+  ];
 }
