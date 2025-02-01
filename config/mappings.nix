@@ -75,27 +75,23 @@ in {
     nvim-surround.enable = true;
   };
 
-  extraConfigLua =
-    /*
-    lua
-    */
-    ''
-      -- Format buffer only with null-ls if available
-      function CustomFormat()
-        local null_ls_sources = require('null-ls.sources')
-        local ft = vim.bo.filetype
+  extraConfigLua = ''
+    -- Format buffer only with null-ls if available
+    function CustomFormat()
+      local null_ls_sources = require('null-ls.sources')
+      local ft = vim.bo.filetype
 
-        local has_null_ls = #null_ls_sources.get_available(ft, 'NULL_LS_FORMATTING') > 0
+      local has_null_ls = #null_ls_sources.get_available(ft, 'NULL_LS_FORMATTING') > 0
 
-        vim.lsp.buf.format({
-          filter = function(client)
-            if has_null_ls then
-              return client.name == 'null-ls'
-            else
-              return true
-            end
-          end,
-        })
-      end
-    '';
+      vim.lsp.buf.format({
+        filter = function(client)
+          if has_null_ls then
+            return client.name == 'null-ls'
+          else
+            return true
+          end
+        end,
+      })
+    end
+  '';
 }
