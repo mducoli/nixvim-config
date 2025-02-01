@@ -36,11 +36,8 @@
     indent-blankline.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
+    bufdelete.enable = true;
   };
-
-  extraPlugins = with pkgs.vimPlugins; [
-    bufdelete-nvim
-  ];
 
   extraPackages = with pkgs; [
     ripgrep

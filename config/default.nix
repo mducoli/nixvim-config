@@ -36,13 +36,6 @@
     lua
     */
     ''
-      -- Go Templ lsp
-      vim.filetype.add({
-        extension = {
-          templ = "templ",
-        },
-      })
-
       local null_ls = require("null-ls")
 
       -- Go Templ formatter
