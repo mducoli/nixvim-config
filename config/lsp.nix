@@ -10,6 +10,8 @@
         ts_ls.enable = true;
         tailwindcss.enable = true;
         eslint.enable = true;
+        # yaml
+        yamlls.enable = true;
         # go
         gopls.enable = true;
         templ.enable = true;
@@ -39,9 +41,7 @@
           {name = "buffer";}
         ];
         snippet.expand =
-          /*
-          lua
-          */
+          # lua
           ''
             function(args)
               require('luasnip').lsp_expand(args.body)
