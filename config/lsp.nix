@@ -58,7 +58,10 @@
       enable = true;
       sources = {
         formatting = {
-          alejandra.enable = true;
+          nixfmt = {
+            enable = true;
+            package = pkgs.nixfmt-rfc-style;
+          };
           prettierd = {
             enable = true;
             disableTsServerFormatter = true;

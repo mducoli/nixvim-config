@@ -7,10 +7,12 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixvim,
     ...
-  }: let
+  } @ inputs: let
+    inherit (self) outputs;
     lib = nixpkgs.lib;
 
     systems = [
@@ -24,6 +26,7 @@
     pkgsFor = lib.genAttrs systems (system:
       import nixpkgs {
         inherit system;
+        overlays = builtins.attrValues outputs.overlays;
       });
 
     nixvimModule = pkgs: {
@@ -42,5 +45,7 @@
     in {
       default = nixvim'.makeNixvimWithModule (nixvimModule pkgs);
     });
+
+    overlays = import ./overlays {inherit inputs outputs;};
   };
 }
