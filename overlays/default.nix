@@ -1,13 +1,14 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   modifications = final: prev: {
     nil = final.rustPlatform.buildRustPackage rec {
       pname = "nil";
-      version = "577d160da311cc7f5042038456a0713e9863d09e";
+      version = "0-unstable-2025-03-04";
 
       src = final.fetchFromGitHub {
         owner = "oxalica";
         repo = "nil";
-        rev = version;
+        rev = "577d160da311cc7f5042038456a0713e9863d09e";
         hash = "sha256-ggXU3RHv6NgWw+vc+HO4/9n0GPufhTIUjVuLci8Za8c=";
       };
 
@@ -15,7 +16,7 @@
       cargoHash = "sha256-uZsLlFU9GKLvFllF7Kf5Q7HfN26KQojf4rvOb9p7Rjs=";
 
       nativeBuildInputs = [
-        (final.lib.getBin final.nixVersions.latest)
+        (final.nix)
       ];
 
       env.CFG_RELEASE = version;

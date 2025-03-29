@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./mappings.nix
     ./lsp.nix

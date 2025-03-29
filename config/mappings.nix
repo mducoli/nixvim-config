@@ -12,7 +12,8 @@ let
     action.__raw = ''function() ${action} end'';
     options.silent = true;
   };
-in {
+in
+{
   keymaps = [
     # General
     (map "n" "<Leader>w" "w") # Save buffer
@@ -30,8 +31,8 @@ in {
     (map "n" "<Leader>o" "Oil") # Open Oil
 
     # Terminal
-    (map ["n" "t"] "<A-h>" "ToggleTerm size=15 direction=horizontal") # Horizontal terminal
-    (map ["n" "t"] "<A-v>" "ToggleTerm size=85 direction=vertical") # Vertical terminal
+    (map [ "n" "t" ] "<A-h>" "ToggleTerm size=15 direction=horizontal") # Horizontal terminal
+    (map [ "n" "t" ] "<A-v>" "ToggleTerm size=85 direction=vertical") # Vertical terminal
 
     # LSP
     (maplua "n" "<Leader>fm" "CustomFormat()") # defined below
@@ -52,8 +53,8 @@ in {
     (map "n" "<Leader>gt" "Telescope git_status")
 
     # Luasnip
-    (maplua ["i" "s"] "<C-L>" "require('luasnip').jump(1)")
-    (maplua ["i" "s"] "<C-J>" "require('luasnip').jump(-1)")
+    (maplua [ "i" "s" ] "<C-L>" "require('luasnip').jump(1)")
+    (maplua [ "i" "s" ] "<C-J>" "require('luasnip').jump(-1)")
 
     # Nabla
     (maplua "n" "<Leader>p" "require('nabla').popup()")

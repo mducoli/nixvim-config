@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   colorschemes.tokyonight = {
     enable = true;
     settings = {
