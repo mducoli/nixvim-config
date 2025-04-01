@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   modifications = final: prev: {
     nil = final.rustPlatform.buildRustPackage rec {

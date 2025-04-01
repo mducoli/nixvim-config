@@ -2,7 +2,7 @@
   description = "A nixvim configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "nixvim/nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
     systems.url = "github:nix-systems/default";
   };
@@ -14,7 +14,7 @@
       systems,
       nixvim,
       ...
-    }@inputs:
+    }:
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib;
@@ -41,6 +41,6 @@
         default = nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule (nixvimModule pkgs);
       });
 
-      overlays = import ./overlays { inherit inputs outputs; };
+      overlays = import ./overlays { };
     };
 }
