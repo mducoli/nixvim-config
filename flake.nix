@@ -42,5 +42,9 @@
       });
 
       overlays = import ./overlays { };
+
+      hydraJobs = {
+        pkgs = outputs.packages;
+      };
     };
 }
