@@ -27,19 +27,31 @@
         }
       );
 
-      nixvimModule = pkgs: {
+      fullModule = pkgs: {
         inherit pkgs;
-        module = import ./config;
+        module = import ./config/all.nix;
+      };
+
+      minimalModule = pkgs: {
+        inherit pkgs;
+        module = import ./config/global;
       };
     in
     {
-      checks = forEachSystem (pkgs: {
-        default = nixvim.lib.${pkgs.system}.check.mkTestDerivationFromNixvimModule (nixvimModule pkgs);
-      });
+      checks = forEachSystem (
+        pkgs: with nixvim.lib.${pkgs.system}.check; {
+          full = mkTestDerivationFromNixvimModule (fullModule pkgs);
+          minimal = mkTestDerivationFromNixvimModule (minimalModule pkgs);
+        }
+      );
 
-      packages = forEachSystem (pkgs: {
-        default = nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule (nixvimModule pkgs);
-      });
+      packages = forEachSystem (
+        pkgs: with nixvim.legacyPackages.${pkgs.system}; rec {
+          full = makeNixvimWithModule (fullModule pkgs);
+          default = full;
+          minimal = makeNixvimWithModule (minimalModule pkgs);
+        }
+      );
 
       overlays = import ./overlays { };
 
