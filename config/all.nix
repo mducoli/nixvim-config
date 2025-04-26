@@ -9,5 +9,6 @@
     ./optional/languages/java.nix
     ./optional/languages/latex.nix
     ./optional/languages/terraform.nix
+    ./optional/languages/lua.nix
   ];
 }
