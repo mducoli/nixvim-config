@@ -23,7 +23,6 @@
         system:
         import nixpkgs {
           inherit system;
-          overlays = builtins.attrValues outputs.overlays;
         }
       );
 
@@ -52,8 +51,6 @@
           minimal = makeNixvimWithModule (minimalModule pkgs);
         }
       );
-
-      overlays = import ./overlays { };
 
       hydraJobs = {
         pkgs = outputs.packages;

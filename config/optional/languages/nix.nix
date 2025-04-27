@@ -16,7 +16,16 @@
                 system = "${pkgs.system}"
               })
             else
-              return {}
+              return {
+                nixpkgs = {
+                  expr = 'import (builtins.getFlake "' .. vim.fn.getcwd() .. '").inputs.nixpkgs {}'
+                },
+                options = {
+                  nixos = {
+                    expr = "{}"
+                  } 
+                }
+              }
             end
           end)()
         '';
