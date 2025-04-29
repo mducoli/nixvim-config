@@ -44,9 +44,5 @@
         nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
       };
     };
-
-    none-ls.sources = {
-      diagnostics.deadnix.enable = true;
-    };
   };
 }

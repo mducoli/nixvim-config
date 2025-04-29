@@ -1,7 +1,6 @@
 {
   plugins = {
     lsp.enable = true;
-    none-ls.enable = true;
 
     treesitter = {
       enable = true;
