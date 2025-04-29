@@ -35,7 +35,7 @@ in
     (map [ "n" "t" ] "<A-v>" "ToggleTerm size=85 direction=vertical") # Vertical terminal
 
     # LSP
-    (maplua "n" "<Leader>fm" "vim.lsp.buf.format()") # defined below
+    (maplua "n" "<Leader>fm" "require('conform').format()")
     (maplua "n" "<Leader>fd" "vim.diagnostic.open_float()") # Open floating diagnostic
     (maplua "n" "K" "vim.lsp.buf.hover()") # Open information tooltip
     (maplua "n" "gD" "vim.lsp.buf.declaration()") # Go to declaration
@@ -74,5 +74,20 @@ in
     };
 
     nvim-surround.enable = true;
+
+    conform-nvim = {
+      enable = true;
+      settings = {
+        formatters_by_ft = {
+          "_" = {
+            lsp_format = "prefer";
+          };
+        };
+        default_format_opts = {
+          async = true;
+        };
+        formatters.injected.options.ignore_errors = true;
+      };
+    };
   };
 }

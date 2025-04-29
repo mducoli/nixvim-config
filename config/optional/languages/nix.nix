@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   plugins = {
     lsp.servers = {
@@ -32,14 +32,20 @@
       };
     };
 
-    none-ls.sources = {
-      formatting = {
-        nixfmt = {
-          enable = true;
-          package = pkgs.nixfmt-rfc-style;
-        };
-        nix_flake_fmt.enable = true;
+    conform-nvim.settings = {
+      formatters_by_ft = {
+        nix = [
+          "injected"
+          "nixfmt"
+        ];
       };
+
+      formatters = {
+        nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
+      };
+    };
+
+    none-ls.sources = {
       diagnostics.deadnix.enable = true;
     };
   };

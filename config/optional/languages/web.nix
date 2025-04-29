@@ -1,3 +1,4 @@
+{ lib, pkgs, ... }:
 {
   plugins = {
     lsp.servers = {
@@ -10,12 +11,55 @@
       yamlls.enable = true;
     };
 
-    none-ls.sources.formatting = {
-      prettierd = {
-        enable = true;
-        disableTsServerFormatter = true;
+    conform-nvim.settings = {
+      formatters_by_ft =
+        (lib.genAttrs
+          [
+            "css"
+            "scss"
+            "less"
+            "json"
+            "jsonc"
+            "yaml"
+            "graphql"
+            "handlebars"
+            "astro"
+            "htmlangular"
+          ]
+          (_: [
+            "prettier"
+          ])
+        )
+        // (lib.genAttrs
+          [
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+            "vue"
+            "svelte"
+            "html"
+          ]
+          (_: [
+            "rustywind"
+            "prettier"
+          ])
+        )
+        // (lib.genAttrs
+          [
+            "markdown"
+            "markdown.mdx"
+          ]
+          (_: [
+            "injected"
+            "prettier"
+          ])
+        );
+
+      formatters = {
+        prettier.command = lib.getExe pkgs.nodePackages.prettier;
+        rustywind.command = lib.getExe pkgs.rustywind;
       };
-      rustywind.enable = true;
     };
   };
 }

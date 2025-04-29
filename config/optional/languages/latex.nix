@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   plugins = {
     lsp.servers = {
@@ -8,26 +8,17 @@
         settings.language = "it";
       };
     };
+
+    conform-nvim.settings = {
+      formatters_by_ft = {
+        tex = [
+          "latexindent"
+        ];
+      };
+
+      formatters = {
+        latexindent.command = "${pkgs.perl540Packages.LatexIndent}/bin/latexindent.pl";
+      };
+    };
   };
-
-  extraConfigLua = ''
-    local null_ls = require("null-ls")
-
-    -- Latex indenter
-    local latex_indenter = {
-      name = "latexindent",
-      method = null_ls.methods.FORMATTING,
-      filetypes = { "tex" },
-      generator = null_ls.formatter({
-        command = "latexindent.pl",
-        args = { },
-        to_stdin = true,
-      }),
-    }
-    null_ls.register(latex_indenter)
-  '';
-
-  extraPackages = with pkgs; [
-    perl540Packages.LatexIndent
-  ];
 }
