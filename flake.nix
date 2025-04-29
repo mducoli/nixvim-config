@@ -25,30 +25,33 @@
           inherit system;
         }
       );
-
-      fullModule = pkgs: {
-        inherit pkgs;
-        module = import ./config/all.nix;
-      };
-
-      minimalModule = pkgs: {
-        inherit pkgs;
-        module = import ./config/global;
-      };
     in
     {
       checks = forEachSystem (
-        pkgs: with nixvim.lib.${pkgs.system}.check; {
-          full = mkTestDerivationFromNixvimModule (fullModule pkgs);
-          minimal = mkTestDerivationFromNixvimModule (minimalModule pkgs);
-        }
+        pkgs:
+        builtins.mapAttrs (
+          n: v:
+          nixvim.lib.${pkgs.system}.check.mkTestDerivationFromNvim {
+            name = n;
+            nvim = v;
+          }
+        ) outputs.packages.${pkgs.system}
       );
 
       packages = forEachSystem (
         pkgs: with nixvim.legacyPackages.${pkgs.system}; rec {
-          full = makeNixvimWithModule (fullModule pkgs);
+
+          minimal = makeNixvimWithModule {
+            inherit pkgs;
+            module = import ./config/global;
+            extraSpecialArgs = { inherit outputs; };
+          };
+
+          full = minimal.extend {
+            imports = [ ./config/full.nix ];
+          };
+
           default = full;
-          minimal = makeNixvimWithModule (minimalModule pkgs);
         }
       );
 

@@ -1,7 +1,5 @@
 {
   imports = [
-    ./global
-
     ./optional/languages/go.nix
     ./optional/languages/sh.nix
     ./optional/languages/nix.nix

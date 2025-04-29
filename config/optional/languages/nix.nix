@@ -32,11 +32,15 @@
       };
     };
 
-    none-ls.sources.formatting = {
-      nixfmt = {
-        enable = true;
-        package = pkgs.nixfmt-rfc-style;
+    none-ls.sources = {
+      formatting = {
+        nixfmt = {
+          enable = true;
+          package = pkgs.nixfmt-rfc-style;
+        };
+        nix_flake_fmt.enable = true;
       };
+      diagnostics.deadnix.enable = true;
     };
   };
 }
