@@ -15,16 +15,11 @@
       formatters = {
         stylua = {
           command = lib.getExe pkgs.stylua;
-          args = [
+          prepend_args = [
             "--indent-type"
             "Spaces"
             "--indent-width"
             "2"
-            "--search-parent-directories"
-            "--respect-ignores"
-            "--stdin-filepath"
-            "$FILENAME"
-            "-"
           ];
         };
       };
