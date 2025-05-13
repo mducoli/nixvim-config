@@ -8,5 +8,6 @@
     ./optional/languages/latex.nix
     ./optional/languages/terraform.nix
     ./optional/languages/lua.nix
+    ./optional/languages/yaml.nix
   ];
 }
