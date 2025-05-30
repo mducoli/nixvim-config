@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices"],
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Renovate Dashboard",
+  "labels": ["renovatebot"],
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "commitMessageSuffix": "",
+  "prHourlyLimit": 99,
+  "prConcurrentLimit": 99,
+
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["monthly"]
+  },
+
+  "nix": {
+    "enabled": true
+  }
+}
