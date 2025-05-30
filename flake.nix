@@ -47,11 +47,9 @@
             extraSpecialArgs = { inherit outputs; };
           };
 
-          full = minimal.extend {
+          default = minimal.extend {
             imports = [ ./config/full.nix ];
           };
-
-          default = full;
         }
       );
 
