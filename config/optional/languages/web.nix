@@ -9,6 +9,7 @@
       tailwindcss.enable = true;
       eslint.enable = true;
       yamlls.enable = true;
+      jsonls.enable = true;
     };
 
     conform-nvim.settings = {
