@@ -12,7 +12,7 @@
 
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["monthly"]
+    "extends": ["schedule:monthly"]
   },
 
   "nix": {
