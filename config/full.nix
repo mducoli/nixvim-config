@@ -9,5 +9,6 @@
     ./optional/languages/terraform.nix
     ./optional/languages/lua.nix
     ./optional/languages/yaml.nix
+    ./optional/languages/c.nix
   ];
 }
