@@ -44,7 +44,6 @@
           minimal = makeNixvimWithModule {
             inherit pkgs;
             module = import ./config/global;
-            extraSpecialArgs = { inherit outputs; };
           };
 
           default = minimal.extend {

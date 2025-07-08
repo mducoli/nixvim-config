@@ -1,9 +1,9 @@
-{ lib, outputs, ... }:
 {
   imports = [
     ./mappings.nix
     ./ui.nix
     ./plugins.nix
+    ./desktop.nix
   ];
 
   opts = {
