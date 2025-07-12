@@ -3,7 +3,7 @@
   plugins = {
     lsp.servers.terraformls = {
       enable = true;
-      package = pkgs.opentofu-ls;
+      package = pkgs.tofu-ls;
       cmd = [
         "opentofu-ls"
         "serve"
