@@ -11,5 +11,6 @@
     ./optional/languages/yaml.nix
     ./optional/languages/c.nix
     ./optional/languages/fsharp.nix
+    ./optional/languages/php.nix
   ];
 }
