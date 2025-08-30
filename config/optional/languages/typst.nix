@@ -86,7 +86,7 @@ in
           init_options = {
             backend = "jar",
             root = "",
-            main = ".languagetool.typst",
+            main = ".languagetool.typ",
             languages = { it = "it-IT", en = "en-US" },
             jar_location = "${pkgs.languagetool}/share/languagetool.jar",
           },
