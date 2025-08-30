@@ -42,21 +42,10 @@
           "injected"
           "nixfmt"
         ];
-        caddy = [
-          "caddyfmt"
-        ];
       };
 
       formatters = {
         nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
-        caddyfmt = {
-          command = lib.getExe pkgs.caddy;
-          stdin = true;
-          args = [
-            "fmt"
-            "-"
-          ];
-        };
       };
     };
   };
