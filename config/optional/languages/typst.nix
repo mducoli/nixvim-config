@@ -83,6 +83,7 @@ in
         default_config = {
           cmd = { "${lib.getExe typst-languagetool-wrapped}" },
           root_dir = lspconfig.util.root_pattern(".git"),
+          filetypes = { 'typst' },
           init_options = {
             backend = "jar",
             root = "",
