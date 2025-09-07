@@ -2,8 +2,8 @@
 {
   perSystem =
     { pkgs, ... }:
-    rec {
-      packages.full = inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
+    {
+      packages.default = inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
         inherit pkgs;
         module.imports = with config.flake.modules.nixvim; [
           core
@@ -23,7 +23,5 @@
           typst
         ];
       };
-
-      packages.default = packages.full;
     };
 }
