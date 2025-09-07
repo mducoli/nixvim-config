@@ -2,7 +2,7 @@
   flake.modules.nixvim.core = {
 
     nixpkgs.overlays = [
-      (final: prev: {
+      (_final: prev: {
         neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
           postInstall =
             old.postInstall or ""

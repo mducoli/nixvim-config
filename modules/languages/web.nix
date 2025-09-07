@@ -17,23 +17,18 @@
 
         conform-nvim.settings = {
           formatters_by_ft =
-            (lib.genAttrs
-              [
-                "css"
-                "scss"
-                "less"
-                "json"
-                "jsonc"
-                "yaml"
-                "graphql"
-                "handlebars"
-                "astro"
-                "htmlangular"
-              ]
-              (_: [
-                "prettier"
-              ])
-            )
+            (lib.genAttrs [
+              "css"
+              "scss"
+              "less"
+              "json"
+              "jsonc"
+              "yaml"
+              "graphql"
+              "handlebars"
+              "astro"
+              "htmlangular"
+            ] (_: [ "prettier" ]))
             // (lib.genAttrs
               [
                 "javascript"
@@ -49,16 +44,10 @@
                 "prettier"
               ])
             )
-            // (lib.genAttrs
-              [
-                "markdown"
-                "markdown.mdx"
-              ]
-              (_: [
-                "injected"
-                "prettier"
-              ])
-            );
+            // (lib.genAttrs [ "markdown" "markdown.mdx" ] (_: [
+              "injected"
+              "prettier"
+            ]));
 
           formatters = {
             prettier.command = lib.getExe pkgs.nodePackages.prettier;

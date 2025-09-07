@@ -42,8 +42,6 @@
         bufdelete.enable = true;
       };
 
-      extraPackages = with pkgs; [
-        ripgrep
-      ];
+      extraPackages = with pkgs; [ ripgrep ];
     };
 }

@@ -13,9 +13,7 @@
 
         conform-nvim.settings = {
           formatters_by_ft = {
-            tex = [
-              "latexindent"
-            ];
+            tex = [ "latexindent" ];
           };
 
           formatters = {

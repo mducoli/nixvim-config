@@ -4,7 +4,7 @@
     { pkgs, ... }:
     let
 
-      typst-languagetool = pkgs.rustPlatform.buildRustPackage (finalAttrs: {
+      typst-languagetool = pkgs.rustPlatform.buildRustPackage (_finalAttrs: {
         pname = "typst-languagetool";
         version = "a54641fef5d197a860c9adef10c474a7555685d2";
 
@@ -17,18 +17,14 @@
 
         cargoHash = "sha256-h4i195BOR5zLbxsTRABwRBl6a5wnOZ9BYFnzOCcJEdI=";
 
-        buildFeatures = [
-          "jar"
-        ];
+        buildFeatures = [ "jar" ];
 
         cargoBuildFlags = [
           "--package"
           "lsp"
         ];
 
-        nativeBuildInputs = with pkgs; [
-          makeBinaryWrapper
-        ];
+        nativeBuildInputs = with pkgs; [ makeBinaryWrapper ];
 
         OPENSSL_DIR =
           let
@@ -66,9 +62,7 @@
 
         conform-nvim.settings = {
           formatters_by_ft = {
-            typst = [
-              "typstyle"
-            ];
+            typst = [ "typstyle" ];
           };
 
           formatters = {
