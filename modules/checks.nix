@@ -5,10 +5,10 @@
     {
       checks = builtins.mapAttrs (
         n: v:
-        inputs.nixvim.lib.${pkgs.system}.check.mkTestDerivationFromNvim {
+        inputs.nixvim.lib.${pkgs.stdenv.hostPlatform.system}.check.mkTestDerivationFromNvim {
           name = n;
           nvim = v;
         }
-      ) self.packages.${pkgs.system};
+      ) self.packages.${pkgs.stdenv.hostPlatform.system};
     };
 }
